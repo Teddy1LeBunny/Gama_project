@@ -1,9 +1,7 @@
-console.log ('Javascript carregado');
-
 function validaCPF(cpf){
     console.log(cpf.length);
     if(cpf.length != 11){
-        return false;  
+        return false;
     }
     else{
     var numeros = cpf.substring(0, 9);
@@ -11,18 +9,24 @@ function validaCPF(cpf){
 
     console.log(numeros);
     console.log(digito);
-    
-    var soma = 0; 
+
+    var soma = 0;
     for(i = 10; i > 1; i--){
         soma += numeros.charAt(10 - i)* i;
 
     }
 
     var resultado = soma % 11 < 2 ? 0 : 11 - (soma % 11);
-    console.log(resultado);
+    console.log('Resultado: ' + resultado);
+
+    console.log('Digito zero: ' + digito.chatAt(0))
+/*
+* O digito zero dos verificadores bate com o resultado, mas a função tá quebrando.
+* Aí o if abaixo retorna false sempre!
+*/
 
     if(resultado != digito.charAt(0)){
-      return false;  
+      return false;
     }
 
     soma = 0;
@@ -41,7 +45,7 @@ function validaCPF(cpf){
     }
     return true;
    }
-   
+
 }
 
 function validacao(){
